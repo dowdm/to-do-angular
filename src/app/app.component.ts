@@ -7,7 +7,7 @@ import { Task } from './models/task.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  currentFocus: string = 'Angular Homework';
+  currentFocus = 'Angular Homework';
   currentTime = new Date();
   month: number = this.currentTime.getMonth() + 1;
   day: number = this.currentTime.getDate();
@@ -20,14 +20,15 @@ export class AppComponent {
   // selectedTask: Task = this.tasks[0];
   selectedTask = null;
 
+  addTask(newTask: Task) {
+    this.masterTaskList.push(newTask);
+  }
+
   finishedEditing() {
     this.selectedTask = null;
   }
 
   editTask(clickedTask) {
     this.selectedTask = clickedTask;
-    console.log(clickedTask);
   }
-
-
 }
